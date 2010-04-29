@@ -3,7 +3,7 @@
 	xsi:schemaLocation="http://maven.apache.org/DECORATION/1.0.0 http://maven.apache.org/xsd/decoration-1.0.0.xsd">
 	<body>
 		<menu name="Overview">
-			<item name="Introduction" href="index.html" />
+			<item name="Introduction" ref="index" />
 			<item name="Goals" href="plugin-info.html" />
 			<item name="Usage" href="usage.html" />
 			<item name="FAQ" href="faq.html" />
@@ -22,6 +22,20 @@
 			<item name="Unlocking snapshot dependencies" href="examples/unlock-snapshots.html" />
 			<item name="Replacing -SNAPSHOT versions with their corresponding releases" href="examples/use-releases.html" />
 		</menu>
-        <menu ref="reports" />
+        <menu name="About the project">
+            <item ref="summary" />
+            <item ref="license" />
+            <item ref="mailing-list" />
+            <item ref="project-team" />
+            <item ref="issue-tracking" />
+            <item ref="scm" />
+            <item ref="cim" />
+        </menu>
+        <menu name="Project information">
+            <item ref="plugins" />
+            <item ref="plugin-management" />
+            <item ref="dependencies" />
+        </menu>
+		<menu ref="reports" />
 	</body>
 </project>
