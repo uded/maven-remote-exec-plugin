@@ -1,4 +1,4 @@
-package pl.radical.maven;
+package pl.radical.maven.data;
 
 import com.jcraft.jsch.UserInfo;
 import com.jcraft.jsch.UIKeyboardInteractive;
