@@ -27,6 +27,34 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<issueManagement>
+		<system>Redmine</system>
+		<url>http://projekty.radical.com.pl/projects/maven-remote-exec/issues</url>
+	</issueManagement>
+	<ciManagement>
+		<system>Hudson</system>
+	</ciManagement>
+	<developers>
+		<developer>
+			<id>uded</id>
+			<name>Łukasz Rżanek</name>
+			<email>lukasz.rzanek@radical.com.pl</email>
+			<organization>Radical Creations</organization>
+			<timezone>CET</timezone>
+			<roles>
+				<role>project owner</role>
+			</roles>
+		</developer>
+	</developers>
+	<scm>
+		<connection>scm:git:git://github.com/uded/maven-remote-exec-plugin.git</connection>
+		<developerConnection>scm:svn:https://svn.radical.com.pl/maven2/maven-remote-exec-plugin/</developerConnection>
+		<tag>HEAD</tag>
+		<url>http://projekty.radical.com.pl/projects/maven-remote-exec/repository</url>
+	</scm>
+	<organization>
+		<name>Radical Creations</name>
+	</organization>
 	<build>
 		<plugins>
 			<plugin>
