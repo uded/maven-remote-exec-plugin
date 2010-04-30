@@ -22,20 +22,6 @@
 			<item name="Unlocking snapshot dependencies" href="examples/unlock-snapshots.html" />
 			<item name="Replacing -SNAPSHOT versions with their corresponding releases" href="examples/use-releases.html" />
 		</menu>
-        <menu name="About the project">
-            <item ref="summary" />
-            <item ref="license" />
-            <item ref="mailing-list" />
-            <item ref="project-team" />
-            <item ref="issue-tracking" />
-            <item ref="scm" />
-            <item ref="cim" />
-        </menu>
-        <menu name="Project information">
-            <item ref="plugins" />
-            <item ref="plugin-management" />
-            <item ref="dependencies" />
-        </menu>
 		<menu ref="reports" />
 	</body>
 </project>
