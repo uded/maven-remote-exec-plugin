@@ -84,7 +84,7 @@
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-site-plugin</artifactId>
 				<configuration>
-					<locales>pl,en</locales>
+					<locales>en,pl</locales>
 				</configuration>
 			</plugin>
 		</plugins>
