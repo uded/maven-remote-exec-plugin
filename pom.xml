@@ -30,6 +30,8 @@
 		</snapshotRepository>
 	</distributionManagement>
 
+	<description>A Maven 2 plugin giving a possibility to execute a command via remote connection (SSH or rexec)</description>
+	<url>http://projekty.radical.com.pl/projects/maven-remote-exec</url>
 	<issueManagement>
 		<system>Redmine</system>
 		<url>http://projekty.radical.com.pl/projects/maven-remote-exec/issues</url>
@@ -49,6 +51,7 @@
 	<organization>
 		<name>Radical Creations</name>
 	</organization>
+	<inceptionYear>2010</inceptionYear>
 	<developers>
 		<developer>
 			<id>uded</id>
