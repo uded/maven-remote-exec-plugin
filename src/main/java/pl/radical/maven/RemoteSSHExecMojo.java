@@ -127,10 +127,10 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 			getLog().info("Connecting to " + host + ":" + port);
 			session.connect();
 
-			if (command != null && !command.isEmpty()) {
+			if (command != null && !"".equals(command)) {
 				getLog().debug("Executing single command: " + command);
 				executeCommand(command);
-			} else if (commands != null && commands.size() > 0) {
+			} else if (commands != null && commands.isEmpty()) {
 				getLog().debug("Using a list of commands to execute. Number of commands: " + commands.size());
 				for (final String command : commands) {
 					executeCommand(command);
