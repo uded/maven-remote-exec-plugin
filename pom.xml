@@ -39,6 +39,7 @@
 
 	<ciManagement>
 		<system>Hudson</system>
+		<url>http://dev.radical.com.pl/hudson/job/maven-remote-exec-plugin/</url>
 	</ciManagement>
 
 	<scm>
