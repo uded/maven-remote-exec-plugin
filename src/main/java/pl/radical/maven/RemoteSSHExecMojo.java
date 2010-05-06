@@ -154,7 +154,9 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 	}
 
 	private void executeCommand(String cmd) throws MojoExecutionException {
-		getLog().info("Executing command: " + cmd);
+		String actualCommand = cmd.replaceAll("\\&amp\\;", "&");
+
+		getLog().info("Executing command: " + actualCommand);
 
 		try {
 			final PipedOutputStream out = new PipedOutputStream();
@@ -164,7 +166,7 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 			session.setTimeout(maxWait * 1000);
 			/* execute the command */
 			channel = (ChannelExec) session.openChannel("exec");
-			channel.setCommand(cmd);
+			channel.setCommand(actualCommand);
 			channel.setOutputStream(out);
 			channel.setExtOutputStream(out);
 			channel.connect();

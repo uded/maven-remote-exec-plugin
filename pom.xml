@@ -4,7 +4,7 @@
 	<groupId>pl.radical.maven</groupId>
 	<artifactId>maven-remote-exec-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>0.3-SNAPSHOT</version>
+	<version>0.4-SNAPSHOT</version>
 	<name>maven-remote-exec-plugin Maven Mojo</name>
 
 	<properties>
@@ -19,14 +19,51 @@
 		</license>
 	</licenses>
 
+	<repositories>
+		<repository>
+			<id>web10-maven2</id>
+			<url>http://fnsharepoint:8080/nexus/content/repositories/web10-maven2</url>
+		</repository>
+		<repository>
+			<id>gtech</id>
+			<url>http://fnsharepoint:8080/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</repository>
+		<repository>
+			<id>gtech-snapshots</id>
+			<url>http://fnsharepoint:8080/nexus/content/groups/public-snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>gtech</id>
+			<url>http://fnsharepoint:8080/nexus/content/groups/public</url>
+			<releases>
+				<enabled>true</enabled>
+			</releases>
+		</pluginRepository>
+		<pluginRepository>
+			<id>gtech-snapshots</id>
+			<url>http://fnsharepoint:8080/nexus/content/groups/public-snapshots</url>
+			<snapshots>
+				<enabled>true</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 	<distributionManagement>
 		<repository>
-			<id>radical-releases</id>
-			<url>http://dev.radical.com.pl/maven/content/repositories/releases</url>
+			<id>releases</id>
+			<url>http://fnsharepoint:8080/nexus/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>radical-snapshots</id>
-			<url>http://dev.radical.com.pl/maven/content/repositories/snapshots</url>
+			<id>snapshots</id>
+			<url>http://fnsharepoint:8080/nexus/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
