@@ -4,7 +4,7 @@
 	<groupId>pl.radical.maven</groupId>
 	<artifactId>maven-remote-exec-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>0.2-SNAPSHOT</version>
+	<version>0.3-SNAPSHOT</version>
 	<name>maven-remote-exec-plugin Maven Mojo</name>
 
 	<properties>
@@ -21,11 +21,11 @@
 
 	<distributionManagement>
 		<repository>
-			<id>releases</id>
+			<id>radical-releases</id>
 			<url>http://dev.radical.com.pl/maven/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
-			<id>snapshots</id>
+			<id>radical-snapshots</id>
 			<url>http://dev.radical.com.pl/maven/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
@@ -70,7 +70,7 @@
 	<build>
 		<plugins>
 			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
 				<configuration>
 					<source>1.5</source>
@@ -80,7 +80,7 @@
 			</plugin>
 
 			<plugin>
-                <groupId>org.apache.maven.plugins</groupId>
+				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-plugin-plugin</artifactId>
 			</plugin>
 

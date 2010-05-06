@@ -47,7 +47,7 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 	 * A server ID from settings.xml's to be used. This is needed to provide a
 	 * authentication information.
 	 * 
-	 * @parameter expression="${remote-ssh-exec.serverId}";
+	 * @parameter
 	 * @required
 	 */
 	private String serverId;
@@ -55,14 +55,14 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 	/**
 	 * Changes the port used to connect to the remote host.
 	 * 
-	 * @parameter expression="${remote-ssh-exec.port}" default-value=22;
+	 * @parameter default-value=22;
 	 */
 	private int port;
 
 	/**
 	 * Remote host, either DNS name or IP address to connect to.
 	 * 
-	 * @parameter expression="${remote-ssh-exec.host}" required;
+	 * @parameter
 	 * @required
 	 */
 	private String host;
@@ -70,21 +70,21 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 	/**
 	 * Max wait for command to execute in seconds
 	 * 
-	 * @parameter expression="${remote-ssh-exec.host}" default-value=30;
+	 * @parameter default-value=30;
 	 */
 	private int maxWait;
 
 	/**
 	 * A command list to be executed, one by one
 	 * 
-	 * @parameter expression="${remote-ssh-exec.commands}";
+	 * @parameter
 	 */
 	private List<String> commands;
 
 	/**
 	 * Command to be executed on the remote server
 	 * 
-	 * @parameter expression="${remote-ssh-exec.command}";
+	 * @parameter
 	 */
 	private String command;
 
@@ -94,6 +94,7 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 
 	/*
 	 * (non-Javadoc)
+	 * 
 	 * @see org.apache.maven.plugin.Mojo#execute()
 	 */
 	public void execute() throws MojoExecutionException {
@@ -126,11 +127,14 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 
 			getLog().info("Connecting to " + host + ":" + port);
 			session.connect();
+			if (session.isConnected()) {
+				getLog().info("-- connection to SSH server established");
+			}
 
 			if (command != null && !"".equals(command)) {
 				getLog().debug("Executing single command: " + command);
 				executeCommand(command);
-			} else if (commands != null && commands.isEmpty()) {
+			} else if (commands != null && !commands.isEmpty()) {
 				getLog().debug("Using a list of commands to execute. Number of commands: " + commands.size());
 				for (final String command : commands) {
 					executeCommand(command);
