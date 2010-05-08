@@ -1,4 +1,4 @@
-package pl.radical.maven;
+package pl.radical.mojos;
 
 import java.io.IOException;
 import java.io.PipedInputStream;
@@ -11,7 +11,7 @@ import org.apache.maven.project.MavenProject;
 import org.apache.maven.settings.Server;
 import org.apache.maven.settings.Settings;
 
-import pl.radical.maven.data.SSHUserInfo;
+import pl.radical.mojos.data.SSHUserInfo;
 
 import com.jcraft.jsch.ChannelExec;
 import com.jcraft.jsch.JSch;
@@ -94,7 +94,6 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 
 	/*
 	 * (non-Javadoc)
-	 * 
 	 * @see org.apache.maven.plugin.Mojo#execute()
 	 */
 	public void execute() throws MojoExecutionException {
@@ -153,8 +152,8 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 		}
 	}
 
-	private void executeCommand(String cmd) throws MojoExecutionException {
-		String actualCommand = cmd.replaceAll("\\&amp\\;", "&");
+	private void executeCommand(final String cmd) throws MojoExecutionException {
+		final String actualCommand = cmd.replaceAll("\\&amp\\;", "&");
 
 		getLog().info("Executing command: " + actualCommand);
 
@@ -180,16 +179,16 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 							return;
 						}
 						try {
-							byte[] tmp = new byte[1024];
+							final byte[] tmp = new byte[256];
 							while (readEndOfPipe.available() > 0) {
-								int in = readEndOfPipe.read(tmp, 0, 1024);
+								final int in = readEndOfPipe.read(tmp, 0, 256);
 								if (in < 0) {
 									break;
 								}
 
 								System.out.print(new String(tmp, 0, in));
 							}
-						} catch (Exception e) {
+						} catch (final Exception e) {
 							// ignored
 						}
 					}
@@ -206,18 +205,18 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 			} else {
 				// this is the wrong test if the remote OS is OpenVMS,
 				// but there doesn't seem to be a way to detect it.
-				int ec = channel.getExitStatus();
+				final int ec = channel.getExitStatus();
 				if (ec != 0) {
-					String msg = "Remote command failed with exit status " + ec;
+					final String msg = "Remote command failed with exit status " + ec;
 					throw new MojoExecutionException(msg);
 				}
 				channel.disconnect();
 			}
-		} catch (JSchException e) {
+		} catch (final JSchException e) {
 			throw new MojoExecutionException("Error detected while executing the command.", e);
-		} catch (InterruptedException e) {
+		} catch (final InterruptedException e) {
 			throw new MojoExecutionException("The execution was interrupted.", e);
-		} catch (IOException e) {
+		} catch (final IOException e) {
 			throw new MojoExecutionException("Unable to create output writer", e);
 		}
 	}
