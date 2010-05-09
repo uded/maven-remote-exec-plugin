@@ -1,201 +1,37 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>pl.radical.maven</groupId>
+
+	<parent>
+		<groupId>pl.radical.mojos</groupId>
+		<artifactId>maven-plugins</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<version>0.4-SNAPSHOT</version>
+
 	<artifactId>maven-remote-exec-plugin</artifactId>
 	<packaging>maven-plugin</packaging>
-	<version>0.4-SNAPSHOT</version>
 	<name>maven-remote-exec-plugin Maven Mojo</name>
-
-	<properties>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-	</properties>
-
-	<licenses>
-		<license>
-			<name>LGPLv3</name>
-			<url>http://www.gnu.org/licenses/lgpl-3.0-standalone.html</url>
-			<distribution>repo</distribution>
-		</license>
-	</licenses>
-
-	<repositories>
-		<repository>
-			<id>web10-maven2</id>
-			<url>http://fnsharepoint:8080/nexus/content/repositories/web10-maven2</url>
-		</repository>
-		<repository>
-			<id>gtech</id>
-			<url>http://fnsharepoint:8080/nexus/content/groups/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</repository>
-		<repository>
-			<id>gtech-snapshots</id>
-			<url>http://fnsharepoint:8080/nexus/content/groups/public-snapshots</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</repository>
-	</repositories>
-	<pluginRepositories>
-		<pluginRepository>
-			<id>gtech</id>
-			<url>http://fnsharepoint:8080/nexus/content/groups/public</url>
-			<releases>
-				<enabled>true</enabled>
-			</releases>
-		</pluginRepository>
-		<pluginRepository>
-			<id>gtech-snapshots</id>
-			<url>http://fnsharepoint:8080/nexus/content/groups/public-snapshots</url>
-			<snapshots>
-				<enabled>true</enabled>
-			</snapshots>
-		</pluginRepository>
-	</pluginRepositories>
-
-	<distributionManagement>
-		<repository>
-			<id>releases</id>
-			<url>http://fnsharepoint:8080/nexus/content/repositories/releases</url>
-		</repository>
-		<snapshotRepository>
-			<id>snapshots</id>
-			<url>http://fnsharepoint:8080/nexus/content/repositories/snapshots</url>
-		</snapshotRepository>
-	</distributionManagement>
 
 	<description>A Maven 2 plugin giving a possibility to execute a command via remote connection (SSH or rexec)</description>
 	<url>http://projekty.radical.com.pl/projects/maven-remote-exec</url>
+	<inceptionYear>2010</inceptionYear>
+
 	<issueManagement>
 		<system>Redmine</system>
 		<url>http://projekty.radical.com.pl/projects/maven-remote-exec/issues</url>
 	</issueManagement>
-
 	<ciManagement>
 		<system>Hudson</system>
 		<url>http://dev.radical.com.pl/hudson/job/maven-remote-exec-plugin/</url>
 	</ciManagement>
-
 	<scm>
 		<connection>scm:git:git://github.com/uded/maven-remote-exec-plugin.git</connection>
 		<developerConnection>scm:svn:https://svn.radical.com.pl/maven2/maven-remote-exec-plugin/</developerConnection>
 		<tag>HEAD</tag>
 		<url>http://projekty.radical.com.pl/projects/maven-remote-exec/repository</url>
 	</scm>
-
-	<organization>
-		<name>Radical Creations</name>
-	</organization>
-	<inceptionYear>2010</inceptionYear>
-	<developers>
-		<developer>
-			<id>uded</id>
-			<name>Łukasz Rżanek</name>
-			<email>lukasz.rzanek@radical.com.pl</email>
-			<organization>Radical Creations</organization>
-			<timezone>+1</timezone>
-			<roles>
-				<role>project owner</role>
-				<role>developer</role>
-			</roles>
-		</developer>
-	</developers>
-
-	<build>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-				<configuration>
-					<source>1.5</source>
-					<target>1.5</target>
-					<encoding>UTF-8</encoding>
-				</configuration>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-plugin-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-site-plugin</artifactId>
-				<configuration>
-					<locales>en,pl</locales>
-				</configuration>
-			</plugin>
-		</plugins>
-		<pluginManagement>
-			<plugins>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-plugin-plugin</artifactId>
-					<version>2.5.1</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-clean-plugin</artifactId>
-					<version>2.4</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-source-plugin</artifactId>
-					<version>2.1.1</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-site-plugin</artifactId>
-					<version>2.1</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-javadoc-plugin</artifactId>
-					<version>2.6.1</version>
-				</plugin>
-				<plugin>
-					<groupId>org.codehaus.mojo</groupId>
-					<artifactId>versions-maven-plugin</artifactId>
-					<version>1.1</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-install-plugin</artifactId>
-					<version>2.3</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-resources-plugin</artifactId>
-					<version>2.4.2</version>
-				</plugin>
-				<plugin>
-					<groupId>org.apache.maven.plugins</groupId>
-					<artifactId>maven-project-info-reports-plugin</artifactId>
-					<version>2.1.2</version>
-				</plugin>
-			</plugins>
-		</pluginManagement>
-	</build>
-
-	<reporting>
-		<plugins>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-plugin-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-javadoc-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.codehaus.mojo</groupId>
-				<artifactId>versions-maven-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</reporting>
 
 	<dependencies>
 		<dependency>
