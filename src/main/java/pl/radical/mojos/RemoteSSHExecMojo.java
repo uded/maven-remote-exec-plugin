@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.io.PipedInputStream;
 import java.io.PipedOutputStream;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import org.apache.maven.plugin.AbstractMojo;
 import org.apache.maven.plugin.MojoExecutionException;
@@ -135,8 +136,8 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 				executeCommand(command);
 			} else if (commands != null && !commands.isEmpty()) {
 				getLog().debug("Using a list of commands to execute. Number of commands: " + commands.size());
-				for (final String command : commands) {
-					executeCommand(command);
+				for (final String singleCommand : commands) {
+					executeCommand(singleCommand);
 				}
 			} else {
 				throw new MojoExecutionException("At least one command or commandSequence must be specified");
@@ -185,10 +186,9 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 								if (in < 0) {
 									break;
 								}
-
 								System.out.print(new String(tmp, 0, in));
 							}
-						} catch (final Exception e) {
+						} catch (final Throwable e) {
 							// ignored
 						}
 					}
@@ -196,7 +196,7 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 			};
 
 			thread.start();
-			thread.join(maxWait * 1000);
+			thread.join(TimeUnit.SECONDS.toMillis(maxWait));
 
 			if (thread.isAlive()) {
 				// ran out of time
