@@ -41,7 +41,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * 
 	 * @return the user name
 	 */
-	public String getName() {
+	public final String getName() {
 		return name;
 	}
 
@@ -52,7 +52,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 *            a message
 	 * @return the passphrase
 	 */
-	public String getPassphrase(final String message) {
+	public final String getPassphrase(final String message) {
 		return passphrase;
 	}
 
@@ -61,7 +61,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * 
 	 * @return the user's password
 	 */
-	public String getPassword() {
+	public final String getPassword() {
 		return password;
 	}
 
@@ -72,7 +72,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 *            the string
 	 * @return whether the string was prompted
 	 */
-	public boolean prompt(final String str) {
+	public final boolean prompt(final String str) {
 		return false;
 	}
 
@@ -81,7 +81,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * 
 	 * @return whether a retry was done
 	 */
-	public boolean retry() {
+	public final boolean retry() {
 		return false;
 	}
 
@@ -91,7 +91,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * @param name
 	 *            The name to set
 	 */
-	public void setName(final String name) {
+	public final void setName(final String name) {
 		this.name = name;
 	}
 
@@ -101,7 +101,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * @param passphrase
 	 *            The passphrase to set
 	 */
-	public void setPassphrase(final String passphrase) {
+	public final void setPassphrase(final String passphrase) {
 		this.passphrase = passphrase;
 	}
 
@@ -111,7 +111,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * @param password
 	 *            The password to set
 	 */
-	public void setPassword(final String password) {
+	public final void setPassword(final String password) {
 		this.password = password;
 	}
 
@@ -121,14 +121,14 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * @param trust
 	 *            whether to trust or not.
 	 */
-	public void setTrust(final boolean trust) {
+	public final void setTrust(final boolean trust) {
 		trustAllCertificates = trust;
 	}
 
 	/**
 	 * @return whether to trust or not.
 	 */
-	public boolean getTrust() {
+	public final boolean getTrust() {
 		return trustAllCertificates;
 	}
 
@@ -137,7 +137,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * 
 	 * @return String
 	 */
-	public String getPassphrase() {
+	public final String getPassphrase() {
 		return passphrase;
 	}
 
@@ -146,7 +146,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * 
 	 * @return String
 	 */
-	public String getKeyfile() {
+	public final String getKeyfile() {
 		return keyfile;
 	}
 
@@ -156,7 +156,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 * @param keyfile
 	 *            The keyfile to set
 	 */
-	public void setKeyfile(final String keyfile) {
+	public final void setKeyfile(final String keyfile) {
 		this.keyfile = keyfile;
 	}
 
@@ -167,7 +167,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 *            ignored
 	 * @return true always
 	 */
-	public boolean promptPassphrase(final String message) {
+	public final boolean promptPassphrase(final String message) {
 		return true;
 	}
 
@@ -178,7 +178,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 *            ignored
 	 * @return true the first time this is called, false otherwise
 	 */
-	public boolean promptPassword(final String passwordPrompt) {
+	public final boolean promptPassword(final String passwordPrompt) {
 		return true;
 	}
 
@@ -189,7 +189,7 @@ public class SSHUserInfo implements UserInfo, UIKeyboardInteractive {
 	 *            ignored
 	 * @return the value of trustAllCertificates
 	 */
-	public boolean promptYesNo(final String message) {
+	public final boolean promptYesNo(final String message) {
 		return trustAllCertificates;
 	}
 
