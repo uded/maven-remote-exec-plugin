@@ -119,11 +119,11 @@
 	<distributionManagement>
 		<repository>
 			<id>radical-releases</id>
-			<url>http://dev.radical.com.pl/maven/content/repositories/releases</url>
+			<url>https://dev.radical.com.pl/maven/content/repositories/releases</url>
 		</repository>
 		<snapshotRepository>
 			<id>radical-snapshots</id>
-			<url>http://dev.radical.com.pl/maven/content/repositories/snapshots</url>
+			<url>https://dev.radical.com.pl/maven/content/repositories/snapshots</url>
 		</snapshotRepository>
 	</distributionManagement>
 
