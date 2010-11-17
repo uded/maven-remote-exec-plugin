@@ -97,7 +97,7 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 	 * (non-Javadoc)
 	 * @see org.apache.maven.plugin.Mojo#execute()
 	 */
-	public void execute() throws MojoExecutionException {
+	public final void execute() throws MojoExecutionException {
 		getLog().debug("Using information from settings.xml about the server: " + serverId);
 
 		final Server server = settings.getServer(serverId);
@@ -153,7 +153,7 @@ public class RemoteSSHExecMojo extends AbstractMojo {
 		}
 	}
 
-	private void executeCommand(final String cmd) throws MojoExecutionException {
+	private final void executeCommand(final String cmd) throws MojoExecutionException {
 		final String actualCommand = cmd.replaceAll("\\&amp\\;", "&");
 
 		getLog().info("Executing command: " + actualCommand);
